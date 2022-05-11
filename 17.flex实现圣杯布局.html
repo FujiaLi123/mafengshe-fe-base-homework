@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    #container {
+        width: 100%;
+        display: flex;
+        flex-direction: column ;  /*设置主轴方向*/ 
+        min-height: 100vh;/*css3中的长度单位，相对于视口的高度。视口被均分为100单位的vh*/
+    }
+    #header, #footer {
+        justify-content: center;
+        align-items: center;
+        flex: 0.1;
+        max-height: 50px;
+        background-color: gray;
+    }
+    #center {
+        flex: 1;/*自适应，自动放大缩小*/
+        display: flex;
+        flex-direction: row ;
+    }
+    #dyleft, #dyright {
+        flex: 0 0 12em;/*flex属性是flex-grow, flex-shrink 和 flex-basis的简写*/
+        background-color: rgb(214, 248, 222);
+    }
+    #dycenter {
+        flex: 1;
+        background-color: rgb(245, 195, 217);
+    }
+    #dyleft{
+        order: -1;/*主栏优先加载*/
+    }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="header">头部</div>
+        <div id="center">
+          <div id="dyleft">侧栏1</div>
+          <div id="dycenter">主栏</div>
+          <div id="dyright">侧栏2</div>
+        </div>
+        <div id="footer">底部</div>
+      </div>   
+</body>
+</html>
