@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>传统方法圣杯布局</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .main{
+            float: left;
+            width: 100%;
+            height: 100%;
+            background-color:pink;
+            min-width: 250px;
+        }
+        .sub{
+            float: left;
+            width: 200px;
+            height: 100%;
+            margin-left: -100%;
+            position: relative;
+            left: -200px;
+            background-color:rgb(196, 241, 255);
+        }
+        .extra{
+            float: left;
+            width: 250px;
+            height: 100%;
+            margin-left: -250px;
+            position: relative;
+            right: -250px;
+            background:rgb(205, 255, 212);
+        }
+        #bd{
+            height: 1000px;
+            background-color:rgb(250, 224, 192);
+            padding: 0 270px 0 210px;
+        }
+    </style>
+</head>
+<body>
+    <div id="bd">         
+        <div class="main"></div>        
+        <div class="sub"></div>        
+        <div class="extra"></div>  
+    </div>
+</body>
+</html>
