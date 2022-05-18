@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = "I miss you";
+        var words = str.split(" ");// ['I', 'miss', 'you']
+        for(var i = 0; i < words.length; i++){
+            var b = words[i].slice(0,1).toUpperCase();//I M Y
+            var r = words[i].slice(1);//iss ou
+            words[i] = b + r;//I Miss You
+        }
+        var bStr = words.join(" ");//I Miss You
+        console.log(bStr);
+        /*var replacedStr = str.replace(/ /g,"a");
+        var fir = replacedStr.indexOf("a");
+        var sChar = str[fir+1];
+        var bChar = sChar.toUpperCase();
+        console.log(bChar);*/
+    </script>
+</body>
+</html>

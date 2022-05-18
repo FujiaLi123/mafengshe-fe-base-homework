@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       /*var num= 19; // 19
+        var myStr = "" +num; // "19" 
+        console.log(myStr)
+        console.log(19)*/
+        var str = "I,miss,you";// I,miss,you
+        var str1 = str.slice(1,2);//,
+        var str2 = str.slice(2);//miss,you
+        var str3 = str.slice(1,-1);//,miss,yo
+        var str4 = str.slice(-1,2);//空
+        var str5 = str.slice(-1,-2);//空
+        var str6 = str.slice(-2);//ou
+        var str7 = str.slice(-3);//you
+        /*substring*/
+        var str8 = "I,miss,you";// I,miss,you
+        var str9 = str.substring(1,2);//,
+        var str10 = str.substring(2);//miss,you
+        var str11 = str.substring(1,-1);//I
+        var str12 = str.substring(-1,2);//I,
+        var str13 = str.substring(-1,-2);//空
+        var str14 = str.substring(-2);//I,miss,you
+        var str15 = str.substring(-3);//I,miss,you
+        /*substr*/
+        var str16 = "I,miss,you";// I,miss,you
+        var str17 = str.substr(1,2);//,m
+        var str18 = str.substr(2);//miss,you
+        var str19 = str.substr(1,-1);//空
+        var str20 = str.substr(-3,2);//yo
+        var str21 = str.substr(-1,-2);//空
+        var str22 = str.substr(-2);//ou
+        var str23 = str.substr(-3);//you
+        console.log(str20);
+    </script>
+</body>
+</html>
