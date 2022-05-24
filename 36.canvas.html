@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cavans</title>
+    <style>
+        #canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="200" height="200"></canvas>
+    <script>
+        var ele = document.getElementById("canvas")
+        var ctx = ele.getContext("2d")
+        ctx.translate(100,100)//移坐标轴到中心
+        setInterval(draw,1000);
+
+        function draw () {    
+            ctx.clearRect(-100, -100, 200, 200);   
+            ctx.strokeStyle = "#3A5FCD";//笔触颜色
+            ctx.lineWidth =7;//线宽
+            ctx.beginPath()
+            ctx.arc(0,0,80,0,Math.PI*2);//圆
+            ctx.closePath()
+            ctx.stroke()
+            
+            var date = new Date();
+    	    var hs = date.getHours();
+    	    var ms = date.getMinutes();
+    	    var ss = date.getSeconds();
+        
+            var hsval = hs % 12 * Math.PI / 6 +ms * Math.PI / 360- Math.PI / 2;
+            var msval = ms * Math.PI / 30 - Math.PI / 2;
+            var ssval = ss * Math.PI / 30 - Math.PI / 2;
+        
+            //时针刻度
+            ctx.save()
+            ctx.beginPath()   
+            for(var i=0;i<12;i++){
+                var t = Math.PI / 6 * i
+                ctx.lineWidth = 4;
+                ctx.lineCap = 'round';//结束线帽
+                ctx.strokeStyle = "#000"
+                var x = 68 * Math.cos(t)
+                var y = 68 * Math.sin(t)
+                ctx.moveTo(x,y)
+                ctx.lineTo(0.8*x,0.8*y)
+                ctx.stroke()
+            }
+            ctx.restore();
+
+            //60秒针刻度
+            ctx.save()
+            ctx.beginPath()   
+            for(var i=0;i<60;i++){
+                var t = Math.PI / 30 * i
+                ctx.lineWidth =2
+                ctx.lineCap = 'round'
+                ctx.strokeStyle = "#000"
+                var x = 68 * Math.cos(t)
+                var y = 68 * Math.sin(t)
+                ctx.moveTo(x,y)
+                ctx.lineTo(0.93*x,0.93*y)
+                ctx.stroke()
+            }
+            ctx.restore();
+
+            //时针
+            ctx.save()
+            ctx.beginPath();
+            ctx.lineWidth = 5;  
+            ctx.lineCap = 'round';
+            ctx.strokeStyle = "black";
+            ctx.moveTo(-10 * Math.cos(hsval),-10 * Math.sin(hsval));
+            ctx.lineTo(45 * Math.cos(hsval),45 * Math.sin(hsval));
+            ctx.stroke()
+            ctx.restore();
+
+            //分针
+            ctx.save()
+            ctx.beginPath();
+            ctx.lineWidth = 3.3
+            ctx.lineCap = 'round'
+            ctx.strokeStyle = "black"
+            ctx.moveTo(-15 * Math.cos(msval),-15 * Math.sin(msval))
+            ctx.lineTo(60 * Math.cos(msval),60 * Math.sin(msval))
+            ctx.stroke()
+            ctx.restore();
+
+            //秒针
+            ctx.save()
+            ctx.beginPath();
+            ctx.lineWidth = 2
+            ctx.lineCap = 'round'
+            ctx.strokeStyle = "#ff0000"
+            ctx.moveTo(-20 * Math.cos(ssval),-20 * Math.sin(ssval))
+            ctx.lineTo(55 * Math.cos(ssval),55 * Math.sin(ssval))
+            ctx.stroke()
+            ctx.restore();
+
+            //秒针上的圆
+            ctx.save()
+            ctx.beginPath()
+            ctx.lineWidth = 2
+            ctx.strokeStyle = "#ff0000"
+            var t=Math.cos(ssval)
+            var m=Math.sin(ssval)
+            ctx.arc(59* t,59 * m,5,0,Math.PI*2)
+            ctx.closePath();
+            ctx.stroke();
+            ctx.restore();
+        }
+    </script>
+</body>
+</html>
