@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>抽奖效果</title>
+    <style>
+        .hidden{
+            display:none;
+        }
+        .container{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        #award{
+            height: 50px;
+            width: 450px;
+            font-size: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color:red;
+        }
+        .action{
+            height: 50px;
+            width: 450px;
+            font-size: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #start {
+            margin: 0 15px ;
+        }
+        #stop{
+            margin: 0 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <div id="award">点击“开始“按钮，开始抽奖！</div>
+    <div class="action">
+        <button id="start">开 始</button>
+        <button id="stop">停 止</button>
+    </div>
+    </div>
+   <script>
+        var award = document.getElementById("award");
+        var arr =["特等奖","一等奖","二等奖","三等奖","鼓励奖"] 
+        var startBtn = document.getElementById('start');
+        var stopBtn = document.getElementById('stop');
+        let timerId = null;
+        function start(){
+            let random = Math.floor(Math.random()*100)
+            if (random == 0) award.innerText = "特等奖";
+            else if (random>=1&&random<=10) award.innerText = "一等奖";
+            else if (random>=11&&random<=40) award.innerText = "二等奖";
+            else if (random>=41&&random<=80) award.innerText = "三等奖";
+            else  award.innerText = "鼓励奖";
+        }
+        startBtn.onclick = function(){
+            timerId = setInterval(start, 10)
+        }
+        stopBtn.onclick = function(){
+            clearInterval(timerId)
+        }
+   </script>
+</div>
+</body>
+</html>

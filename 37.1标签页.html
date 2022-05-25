@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>标签页效果</title>
+    <style>
+        body{
+            margin: 0;
+        }
+        .tabs {
+            display:flex;
+            justify-content:center;
+            height:20px;
+            width:600x;
+            margin:0 auto;
+            font-size: 20px;
+        }
+        .content{
+            display:flex;
+            justify-content:center;
+            align-items: center;
+            height:60px;
+            width:100x;
+            margin:33px auto;
+            font-size:25px;
+            background-color: rgb(232, 245, 223);
+        }
+        .tabs .tab{
+            margin: 0 ;
+            border:1px solid rgb(244, 100, 174);
+        }
+        .tab{
+            display:flex;
+            justify-content:center;
+            align-items: center;
+            height:50px;
+            width: 300px;
+            margin: 0 auto;
+            background-color: rgb(239, 228, 242);
+        }
+        .hidden{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="tabs">
+        <div class="tab">tab1</div>
+        <div class="tab">tab2</div>
+    </div>
+    <div class="content">
+        <div class="con">tab1's content</div>
+        <div class="con">tab2's content</div>
+    </div>
+    <script>
+        var tabs = document.getElementsByClassName("tab")
+        var divs = document.querySelectorAll(".content div")
+        for(var i = 0 ;i < tabs.length;i++){
+        (function (i){
+            tabs[i].onclick = function(){   
+                for(var j = 0;j < divs.length;j++){
+                    divs[j].className = "hidden"
+                }
+                divs[i].className = ""
+            }
+        })(i)     
+        }
+        for(var j = 1;j < divs.length;j++){
+                    divs[j].className = "hidden"
+        }
+    </script>
+</body>
+</html>
